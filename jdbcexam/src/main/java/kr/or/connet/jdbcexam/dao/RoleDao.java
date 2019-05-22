@@ -1,5 +1,6 @@
 package kr.or.connet.jdbcexam.dao;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +16,49 @@ public class RoleDao {
 	private static String dbUser = "root";
 	private static String dbpasswd = "1234";
 	
+	public int updateRole(Role role,Role newRole) {
+		int updateCount = 0;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String sql = "UPDATE role SET role_id = ? , description = ? WHERE  role_id = ? and description = ?";
+		
+		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			ps.setInt(3, role.getRoleId());
+			ps.setString(4,role.getDescription());
+			ps.setInt(1, newRole.getRoleId());
+			ps.setString(2, newRole.getDescription());
+			updateCount = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return updateCount;
+	}
+	
+	public int deleteRole(Role role) {
+		int deleteCount = 0;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String sql = "DELETE FROM role WHERE role_id = ? and description = ?";
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			PreparedStatement ps = conn.prepareStatement(sql)){
+				ps.setInt(1,role.getRoleId());
+				ps.setString(2,role.getDescription());
+				deleteCount = ps.executeUpdate();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return deleteCount;
+	}
+	
 	public List<Role> getRoles(){
 		List<Role> list = new ArrayList<>();
 		
@@ -26,6 +70,7 @@ public class RoleDao {
 		String sql = "SELECT description, role_id FROM role order by role_id desc";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 			PreparedStatement ps = conn.prepareStatement(sql)){
+			//close를 자동으로해줌 새로운 문법
 			
 			try(ResultSet rs = ps.executeQuery()){
 				
