@@ -143,7 +143,7 @@ public class RoleDao {
 			rs = ps.executeQuery(); // 쿼리를 날려주고 결과값을 rs에 담아주세요
 			
 			if(rs.next()) {
-				String description = rs.getString(1); //순서로 가져올수도있고
+				String description = rs.getString(2); //순서로 가져올수도있고
 				int id = rs.getInt("role_id"); //컬럼명으로 가져올수도있다
 				role = new Role(id,description);
 			}
