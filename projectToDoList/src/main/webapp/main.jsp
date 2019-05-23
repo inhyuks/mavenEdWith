@@ -8,7 +8,7 @@
 <body>
 	<div id="container">
 		<div align="right">
-			<button onclick = "location.href = '/TodoPost'">새로운 TODO 등록</button>
+			<button onclick = "location.href = '/webapiexam/TodoPost'">새로운 TODO 등록</button>
 		</div>
 	</div>
 	

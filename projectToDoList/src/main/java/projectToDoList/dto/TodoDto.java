@@ -17,6 +17,11 @@ public class TodoDto {
 		this.title = title;
 		this.type = type;
 	}
+	public TodoDto(String name, int sequence, String title){
+		this.name = name;
+		this.sequence = sequence;
+		this.title = title;
+	}
 	
 	@Override
 	public String toString() {

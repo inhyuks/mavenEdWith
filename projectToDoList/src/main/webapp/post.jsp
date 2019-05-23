@@ -10,7 +10,7 @@
 <h1 align = "center">할일 등록</h1>
 	<div align = "center" style ="padding-left : 10px">
 		
-		<form action="/TodoSet" method="POST">
+		<form action="/webapiexam/TodoSet" method="POST">
 		<div style = " margin-top : 20px;">
 			어떤일인가요?<br>
 			<input type="text" name="title" placeholder="swift 공부하기(24자까지)" >
