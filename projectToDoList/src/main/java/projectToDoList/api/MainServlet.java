@@ -48,6 +48,7 @@ public class MainServlet extends HttpServlet {
 		TodoDao todoDao = new TodoDao();
 		list = todoDao.getTodos();
 		
+		
 		request.setAttribute("item",list);
 		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 		rd.forward(request, response);

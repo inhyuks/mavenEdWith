@@ -7,8 +7,9 @@ public class TodoDto {
 	int sequence;
 	String title;
 	String type;
+	
 	public TodoDto() {}
-	public TodoDto(Long id, String name, String regdate, int sequence, String title, String Type){
+	public TodoDto(Long id, String name, String regdate, int sequence, String title, String type){
 		this.id = id;
 		this.name = name;
 		this.regdate = regdate;
@@ -56,6 +57,6 @@ public class TodoDto {
 		return type;
 	}
 	public void setType(String type) {
-		type = type;
+		this.type = type;
 	}
 }
