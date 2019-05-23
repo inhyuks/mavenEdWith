@@ -19,6 +19,7 @@
 				<c:if test="${item.type eq 'TODO'}">
 					${item.title } <br>
 					등록날짜 : ${item.regdate }${name },우선순위1<br>
+					<button onclick = "location.href = '/webapiexam/TodoPut?id=${item.id}&type=${item.type}'">-></button>
 				</c:if>
 			</div>
 		</c:forEach>

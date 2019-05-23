@@ -23,6 +23,11 @@ public class TodoDto {
 		this.title = title;
 	}
 	
+	public TodoDto(Long id,String type){
+		this.id = id;
+		this.type = type;
+	}
+	
 	@Override
 	public String toString() {
 		return "Dto [id=" + id + ", name=" + name + ", regdate=" + regdate + ", sequence=" + sequence + ", title="

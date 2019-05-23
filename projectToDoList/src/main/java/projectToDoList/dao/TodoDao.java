@@ -10,7 +10,7 @@ import projectToDoList.dto.TodoDto;
 
 public class TodoDao {
 
-	private static String dburl = "jdbc:mysql://localhost:3306/edwith";
+	private static String dburl = "jdbc:mysql://localhost:3306/edwith?useSSL=false";
 	private static String dbUser = "root";
 	private static String dbpasswd = "1234";
 
