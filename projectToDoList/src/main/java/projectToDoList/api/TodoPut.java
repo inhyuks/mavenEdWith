@@ -36,11 +36,10 @@ public class TodoPut extends HttpServlet {
 		
 		Long id = Long.valueOf(request.getParameter("id"));
 		String type = request.getParameter("type");
-		System.out.println(id+type);
 		TodoDto todoDto = new TodoDto(id,type);
 		TodoDao todoDao = new TodoDao();
 		
-		System.out.println(todoDao.updateTodo(todoDto));
+		todoDao.updateTodo(todoDto);
 		response.sendRedirect("MainServlet");
 	}
 

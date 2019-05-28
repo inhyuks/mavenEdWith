@@ -78,11 +78,11 @@ public class TodoDao {
 	}
 	
 	public String todoTypeChange(String type) {
-		if(type.equals("todo")) {
-			return "doing";
+		if(type.equals("TODO")) {
+			return "DOING";
 		}
-		else if(type.equals("doing")) {
-			return "done";
+		else if(type.equals("DOING")) {
+			return "DONE";
 		}
 		else return type;
 	}
