@@ -11,8 +11,12 @@ public class ApplicationContextExam01 {
 		System.out.println("초기화 완료!!");
 		
 		UserBean userBean = (UserBean)ac.getBean("userBean");
-		userBean.setName("kang");
+		userBean.setName("kim");
 		System.out.println(userBean.getName());
+		
+		UserBean userBean2 = (UserBean)ac.getBean("userBean");
+		if(userBean == userBean2) {
+			System.out.println("같은 인스턴스이다.");
+		}
 	}
-
 }
