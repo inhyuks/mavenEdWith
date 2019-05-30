@@ -4,5 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="userBean" class="kr.or.connet.diexam.UserBean"></bean>
-
+	<bean id="c" class = "kr.or.connet.diexam.Car">
+		<property name="engine" ref="e"></property> <!-- get set 메서드 -->
+	</bean>
+	<bean id="e" class = "kr.or.connet.diexam.Engine"/>
 </beans>
