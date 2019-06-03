@@ -23,7 +23,10 @@ public class JDBCTest {
 /*		int count = roleDao.update(role);
 		System.out.println(count + "건 수정하였습니다. ");*/
 		
-		Role resuleRole = roleDao.selectOne(500);
-		System.out.println(resuleRole);
+/*		Role resuleRole = roleDao.selectOne(500);
+		System.out.println(resuleRole);*/
+		
+		int count = roleDao.deleteById(500);
+		System.out.println(count + "건 수정하였습니다. ");
 	}
 }

@@ -1,5 +1,6 @@
 package kr.or.connect.springJDBC.dao;
 
+import javax.management.Query;
 import javax.sql.DataSource;
 
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -58,5 +59,10 @@ public class RoleDao {
 			//select 시 조건에 맞는 결과가없으면
 			return null;
 		}
+	}
+	
+	public int deleteById(Integer id) {
+		Map<String, ?> params = Collections.singletonMap("roleId", id);
+		return jdbc.update(DELETE_BY_ROLE_ID, params);
 	}
 }
