@@ -2,6 +2,7 @@ package kr.or.connect.springJDBC.dao;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -16,6 +17,7 @@ import static kr.or.connect.springJDBC.dao.RoleDaoSqls.*; // roledao에있는 �
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 @Repository // 저장소의 역할을 한다.
 public class RoleDao {
 	private NamedParameterJdbcTemplate jdbc; //?매핑했을떄 알아보기힘들어서 사용
@@ -46,5 +48,15 @@ public class RoleDao {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(role);
 		return jdbc.update(UPDATE,params);
 		//첫번째 파람은 SQL, 두번째는 맵객체(값을채워줄 객체)
+	}
+	
+	public Role selectOne(Integer id) {
+		try {
+			Map<String,?> params = Collections.singletonMap("roleId",id);
+			return jdbc.queryForObject(SELECT_BY_ROLE_ID, params, rowMapper);
+		} catch (EmptyResultDataAccessException e) {
+			//select 시 조건에 맞는 결과가없으면
+			return null;
+		}
 	}
 }

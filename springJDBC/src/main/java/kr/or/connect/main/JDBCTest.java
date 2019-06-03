@@ -20,8 +20,10 @@ public class JDBCTest {
 		/*int count = roleDao.insert(role);
 		System.out.println(count + "건 입력하였습니다. ");*/
 		
-		int count = roleDao.update(role);
-		System.out.println(count + "건 수정하였습니다. ");
+/*		int count = roleDao.update(role);
+		System.out.println(count + "건 수정하였습니다. ");*/
 		
+		Role resuleRole = roleDao.selectOne(500);
+		System.out.println(resuleRole);
 	}
 }
