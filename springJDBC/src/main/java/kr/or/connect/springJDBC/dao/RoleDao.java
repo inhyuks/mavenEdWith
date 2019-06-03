@@ -41,4 +41,10 @@ public class RoleDao {
 		return insertAction.execute(params);
 		//이런 맵객체를 execute 메서드의 파라미터로 전달할경우 값이 알아서 저장됨
 	}
+	
+	public int update(Role role) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(role);
+		return jdbc.update(UPDATE,params);
+		//첫번째 파람은 SQL, 두번째는 맵객체(값을채워줄 객체)
+	}
 }
