@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration // 나 설정파일이에요
 @EnableWebMvc // 기본설정은 여기에해주세요
 @ComponentScan(basePackages = {"kr.or.connect.springGuestBook.controller"})
-//controller 읽어와서 사용해요
+//controller 읽어와서 사용해요 
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -31,7 +31,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
             System.out.println("addViewControllers가 호출됩니다. ");
-        registry.addViewController("/").setViewName("main");
+        registry.addViewController("/").setViewName("index");
     } // 특정 url처리를 컨트롤러클래스를 작성하지않고 매핑할수있게함
     
     @Bean
