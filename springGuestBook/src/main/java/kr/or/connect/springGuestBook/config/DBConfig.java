@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 public class DBConfig implements TransactionManagementConfigurer {
 	private String driverClassName = "com.mysql.jdbc.Driver";
 
-	private String url = "jdbc:mysql://localhost:3306/connectdb?useUnicode=true&characterEncoding=utf8";
+	private String url = "jdbc:mysql://localhost:3306/edwith?useUnicode=true&characterEncoding=utf8&useSSL=false";
 
-	private String username = "connectuser";
+	private String username = "root";
 
-	private String password = "connect123!@#";
+	private String password = "1234";
 
 	@Bean
 	public DataSource dataSource() {
