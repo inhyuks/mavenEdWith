@@ -14,5 +14,5 @@ public interface GuestbookService {
 	//방명록 추가
 	public GuestBook addGuestbook(GuestBook guestbook, String ip);
 	//방명록 전체개수
-	public int getCCount();
+	public int getCount();
 }

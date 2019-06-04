@@ -58,7 +58,7 @@ public class GuestbookServiceImpl implements GuestbookService{
 
 	@Override
 	@Transactional(readOnly = false)
-	public int getCCount() {
+	public int getCount() {
 		return guestbookDao.selectCount();
 	}// 방명록 전체개수
 }
