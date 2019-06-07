@@ -56,4 +56,6 @@ public class GuestbookController {
 		guestbookService.addGuestbook(guestbook, clientIp);
 		return "redirect:list";
 	}
+	
+	
 }
