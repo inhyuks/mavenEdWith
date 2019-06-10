@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<display-name>Spring JavaConfig Sample</display-name>
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>kr.or.connect.reservation.config.ApplicationConfig
+		</param-value>
+	</context-param>
+	<!-- listener는 특정이벤트발생시 동작 -->
+	<listener>
+	<!-- ContextLoaderListener context가 로딩될떄 이클래스를 실행시켜줘요 -->
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+<!-- 모든요청을 다 받을거에요 -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<!-- 누가? 디스패쳐서블릿이 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<!-- 여기있는것을 참고하세요 -->
+			<param-value>kr.or.connect.reservation.config.WebMvcContextConfiguration
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+<!-- 요청수행전 응답전 걸쳐서 수행 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<!-- 인코딩수행 -->
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<!-- 인코딩뭘로할거냐 -->
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<!-- 이필터를 어디까지 적용할래? /* 모든것 -->
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
