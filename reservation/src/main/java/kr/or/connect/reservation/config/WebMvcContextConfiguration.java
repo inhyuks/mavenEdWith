@@ -16,7 +16,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/").setCachePeriod(31556926);
+       // registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
@@ -31,7 +32,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
             System.out.println("addViewControllers가 호출됩니다. ");
-        registry.addViewController("/").setViewName("mainpage");
+        registry.addViewController("/").setViewName("index");
     } // 특정 url처리를 컨트롤러클래스를 작성하지않고 매핑할수있게함
     
     @Bean
