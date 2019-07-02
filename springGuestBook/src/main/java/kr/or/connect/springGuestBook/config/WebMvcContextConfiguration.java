@@ -20,6 +20,10 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+        registry.addResourceHandler("swagger-ui.html")
+        .addResourceLocations("classpath:/META-INF/resources/");
+    registry.addResourceHandler("/webjars/**")
+        .addResourceLocations("classpath:/META-INF/resources/webjars/");
     } //독특한요청이들어오는건 여기서 찾아요~ 라는 설정
  
     // default servlet handler를 사용하게 합니다.
@@ -41,4 +45,6 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         resolver.setSuffix(".jsp");
         return resolver;
     } // 뷰
+    
+
 }

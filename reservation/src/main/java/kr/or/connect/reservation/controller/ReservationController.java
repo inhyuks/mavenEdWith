@@ -30,4 +30,12 @@ public class ReservationController {
 		model.addAttribute("productList",productList);
 		return "mainpage";
 	}
+	
+	@GetMapping(path="/test")
+	public String test(@RequestParam(name="start", required=false, defaultValue="0") int start,
+			Model model) {
+		List<Product> productList = reservationService.getAllProduct(start);
+		model.addAttribute("productList",productList);
+		return "test";
+	}
 }
